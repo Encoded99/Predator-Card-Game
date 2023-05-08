@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREDATORS</title>
+<link rel="stylesheet" href="./cdn.css">
+<style>
+    body{
+  height: 100vh;
+}
+
+
+  .board{
+    background-color: yellow;
+    height: 729px;
+  }
+
+.p2{
+  background-color: black; 
+  color: brown; 
+  position: absolute;
+  top: 121%;
+  left: 8%;
+}
+
+       .cr1{
+         width: 100px;
+         height: 180px;
+         background-color: aqua;
+         /* border: 2% solid yellow; */
+         position: absolute;
+         
+        
+       }
+     
+       .cr2{
+        width: 100px;
+         height: 180px;
+         background-color: aqua;
+         /* border: 2% solid yellow; */
+         position: absolute;
+        top:83%;
+        
+       }
+     
+      
+     
+       .front{
+         background: url(./Bicycle-Playing-Cards-Standard-Size-by-Continuum-Games-2.jpg);
+               background-size: cover;
+
+         z-index: 1;
+         
+     }
+    
+     
+     .back{
+         
+     
+         background-size: cover;
+         backface-visibility: hidden;
+         color: black;
+         display: flex;
+
+     }
+    .front{
+      display: block;
+    }
+     
+     .front,.back{
+                 width: 100%;
+                 height: 100%;
+                 color: white;
+                 text-align: center;
+                 position: absolute;
+                left: 0%;
+                transition: 1s;
+               backface-visibility: hidden;
+              
+             }
+
+             .target1{
+        background-color: brown;
+        position: absolute;
+
+                 width: 100px;
+                 height: 180px;
+                 left: 40%; 
+                 top: 50%;
+                 
+      }
+      .target2{
+        background-color: white;
+            position: absolute;
+                 width: 100px;
+                 height: 180px;
+                 left: 50%; 
+                 top: 50%;
+                 
+      }
+
+      .li{
+        background: url(./images/crown-gold-lion-logo-company-premium-mascot-vector-your-store-195534289.jpg);
+        background-size: cover;
+      }
+
+     
+      .ca{
+        background: url(./images/download.png);
+        background-size: cover;
+      }
+      .ch{
+        background: url(./images/cheetah-logo-design-template-vector.jpg);
+        background-size: cover;
+      }
+      .le{
+        background: url(./images/panda-mascot-logo-free-vector.jpg);
+      }
+     .block1{
+        height:180px ;
+        
+        background-color: white;
+        position: relative;
+        z-index: 4;
+        visibility: hidden;
+        background: url(./images/sparkles-twinkles.gif);
+        
+        
+      
+     }
+
+     .block2{
+        height:180px ;
+        
+        background-color: white;
+        position: relative;
+        top: 34.7%;
+        z-index: 4;
+        visibility: hidden;
+        background: url(./images/sparkles-twinkles.gif);
+        
+       
+      
+     }
+    .score-board{
+        height: 101px;
+        color: white;
+        background-color:maroon;
+        width: 150px;
+        position: absolute;
+        top: 0.5%;
+        left: 89%;
+        font-size: small;
+       visibility: hidden;
+    }
+     .s1,.s2{
+        font-size: 50px;
+        color: goldenrod;
+        justify-content: center;
+        align-items: center;
+     }
+     .hint{
+        width: 30%;
+        height: 20%;
+        background-color:black;
+        color: white;
+        position: absolute;
+        visibility: hidden;
+        transition: 1s;
+        z-index: 5;
+        top: 0%;
+        left: 40%;
+        border-radius: 2%;
+     }
+
+   
+     .cimage{
+       width: 100%;
+       height: 60%;
+     }
+     .ctext{
+        font-size: 90px;
+     }
+     .c{
+        font-size: 35px;
+     }
+   .congrat{
+    width: 30%;
+    height: 40%;
+    
+    background-color:white;
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 35%;
+    z-index: 6;
+    display: flex;
+    visibility: hidden;
+   }
+  .ct{
+    position: absolute;
+    justify-items: center;
+    align-content: center;
+    font-size: 32px;
+  }
+
+     .button-reset{
+        width: 30%;
+        height: 20%;
+        position: absolute;
+        top: 50%;
+         left: 37%;
+        background-color: green;
+        color: white;
+         visibility: visible;        
+     }
+
+
+ 
+     
+     /* initial gameboard inner  html start here */
+     
+     
+     .first-col{
+      width: 25%;
+      
+      
+     }
+      .second-col{
+        width: 25%;
+      }  
+
+     .card-holder{
+      height: 30%;
+      font-style: italic;
+     }
+     .guide{
+      background-color:#ddd;
+      color: black;
+      height: auto;
+     }
+
+      .button-reset{
+        width: 30%;
+        height: 20%;
+        position: absolute;
+        top: 0%;
+         left: 40%;
+        background-color: green;
+        color: white;
+         visibility: visible;        
+     }
+
+     .sound-on{
+      width: 5%;
+        height: 4%;
+        position: absolute;
+        top: 50%;
+         left: 49%;
+         color: white;
+         font-size: 60%;
+         background-color: blue;
+         border-radius: 8%;
+     }
+
+     .sound-off{
+      width: 5%;
+        height: 4%;
+        position: absolute;
+        top: 50%;
+         left: 49%;
+         color: white;
+         font-size: 60%;
+         background-color: red;
+         border-radius: 8%;
+     }
+
+
+     @media screen and (min-width:1600px ) and  (min-height:900px) {
+
+      .sound-on{
+      width: 5%;
+        height: 4%;
+        position: absolute;
+        top: 41%;
+         left: 46%;
+         color: white;
+         font-size: 60%;
+         background-color: blue;
+         border-radius: 8%;
+     }
+
+     .sound-off{
+      width: 5%;
+        height: 4%;
+        position: absolute;
+        top: 41%;
+         left: 46%;
+         color: white;
+         font-size: 60%;
+         background-color: red;
+         border-radius: 8%;
+     }
+     .cr2{
+        width: 100px;
+         height: 180px;
+         background-color: aqua;
+         /* border: 2% solid yellow; */
+         position: absolute;
+        top:83%;
+        
+       }
+    
+      .button-reset{
+        width: 30%;
+        height: 20%;
+        position: absolute;
+        top: -20%;
+         left: 30%;
+        background-color: green;
+        color: white;
+         visibility: visible;        
+     }
+
+      .cr1{
+         width: 100px;
+         height: 180px;
+         background-color: aqua;
+         /* border: 2% solid yellow; */
+         position: absolute;
+         top: 17%;
+      
+        
+       }
+
+       .contain{
+        background-color: black;
+       }
+
+       .board{
+    background-color: yellow;
+    height: 800px;
+ }
+
+ .block1{
+        height:180px ;
+        
+        background-color: white;
+        position: relative;
+        top: 4.4%;
+        z-index: 4;
+        visibility: hidden;
+        background: url(./images/sparkles-twinkles.gif);
+        
+        
+      
+     }
+
+     .block2{
+        height:180px ;
+        
+        background-color: white;
+        position: relative;
+        top: 48.9%;
+        z-index: 4;
+        visibility: hidden;
+        background: url(./images/sparkles-twinkles.gif);
+        
+       
+      
+     }
+     .p2{
+  background-color: black; 
+  color: brown; 
+  position: absolute;
+  top: 103%;
+  left: 8%;
+}
+
+.col-container{
+    width: 100%;
+   
+}
+
+.card-holder{
+      height:5%;
+      font-style: italic;
+     }
+
+.first-col{
+      width:50%;
+      
+      
+     }
+      .second-col{
+        width: 50%;
+      }  
+      
+     }
+
+
+     @media screen and (max-width:450px){
+
+      .cr1{
+         width: 45px;
+         height: 81px;
+         background-color: aqua;
+         /* border: 2% solid yellow; */
+         position: absolute;
+         
+        
+       }
+     
+       .cr2{
+        width: 45px;
+         height: 81px;
+         background-color: aqua;
+         /* border: 2% solid yellow; */
+         position: absolute;
+         
+        
+       }
+
+       
+       .target1{
+        background-color: brown;
+        position: absolute;
+
+                 width: 45px;
+                 height: 81px;
+                 left: 40%; 
+                 top: 50%;
+                 
+      }
+      .target2{
+        background-color: white;
+            position: absolute;
+                 width: 45px;
+                 height: 81px;
+                 left: 50%; 
+                 top: 50%;
+                 
+      }
+      .board{
+    background-color: yellow;
+    height: 328px;
+    width: 100%;
+  }
+
+
+     }
+
+
+</style>
+</head>
+<body>
+      <div class="game">
+    <div class="game-board">
+      
+      
+        <div class="row col-container
+        ">
+         <div class="col  first-col"><img src="./images/7388118828a3c2f454951ed0f57c9d78--art-and-illustration.jpg" alt=""></div>
+         <div class="col  second-col"><img src="./images/eating-time-svetlana-sewell.jpg" alt=""></div>
+
+        </div>
+        
+      <div class="card-group  card-holder">
+           <div class="card guide">
+            <img src="./images/crown-gold-lion-logo-company-premium-mascot-vector-your-store-195534289.jpg" alt="" style="height: 30%;width: 100%;">
+            <div class="card-body">
+              <h1 class="card-title">LION</h1>
+              <p class="card-text"><h5>PREY:</h5>Cheetah and Cat
+                <h5>PREDATOR:</h5>Leonophales
+                <br>
+               <h5>ATTRIBUTES:</h5> 
+      <ul>
+        <li> the name of this animal has two syllables</li>
+        <li>the third letter in the name of this animal is 'O'</li>
+        <li>the first vowel  of the animal name from the back is 'A'</li>
+        <li>this animal's name has vowel as it's second letter</li>
+       </ul>
+    
+              </p>
+
+            </div>
+           </div>
+           <div class="card guide">
+            <img src="./images/cheetah-logo-design-template-vector.jpg" alt=""   style="height: 30%;width: 100%;" >
+            <div class="card-body">
+              <h1 class="card-title">CHEETAH</h1>
+              <p class="card-text"> <h5>PREY:</h5> Cat and Leonophales</p>
+              <h5>PREDATOR:</h5>Lion
+
+              
+              <h5>ATTRIBUTES:</h5> 
+
+
+    <ul>
+      <li> the name of this animal has two syllables</li>
+      <li>the first vowel in the name of this animal is 'E'</li>
+      <li>the first vowel  of the animal name from the back is 'A'</li>
+     </ul>
+
+            </div>
+           </div>
+           <div class="card guide">
+            <img src="./images/download.png" alt=""  style="height: 30%;width: 100%;">
+            <div class="card-body">
+              <h1 class="card-title">CAT</h1>
+              <p class="card-text"> <h5>PREY:</h5>Leonophales</p>
+              <h5>PREDATOR:</h5>Lion and Cheetah
+
+              <h5>ATTRIBUTES:</h5> 
+
+
+              <ul>
+                <li> its a prey to cheetah</li>
+                <li>this animal's name has vowel as it's second letter</li>
+                <li>the first vowel  of the animal name from the back is 'A'</li>
+               </ul>
+              
+
+            </div>
+           </div>
+           <div class="card guide">
+            <img src="./images/panda-mascot-logo-free-vector.jpg" alt=""  style="height: 30%;width: 100%;">
+            <div class="card-body">
+              <h1 class="card-title">LEONOPHALES</h1>
+              <p class="card-text"><h5>PREY:</h5> Lion</p>
+              <h5>PREDATOR:</h5>Cheetah and Cat
+
+              <h5>ATTRIBUTES:</h5> 
+
+
+              <ul>
+                <li> the first vowel in the name of this animal is 'E'</li>
+                <li>its a prey to cheetah</li>
+                <li>the third letter in the name of this animal is 'O'</li>
+                <li>its a prey to cheetah</li>
+               </ul>
+
+            </div>
+           </div>
+
+           
+
+      </div>
+       
+        
+        
+   
+</div>
+ <button class="sound-off">sound off</button><button class="sound-on">sound on</button>
+
+<audio src="./sounds/20230308_093920.mp3" class="monster-song"></audio>
+<div class="row score-board">
+    <div class="col">player 1 <strong class="s1">0</strong></div>
+    <div class="col">player 2 <strong class="s2">0</strong></div>
+</div>
+<div class="hint">
+
+</div>
+
+
+<div class="congrat">
+    <strong class="ct"></strong>     
+    <button class="button-reset">click to start game</button>
+</div>
+
+</div>
+
+
+
+<script src="./cdn.js"> </script>
+<script src="./games.js"></script>
+</body>
+</html>
+
+ 
+
